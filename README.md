@@ -24,6 +24,8 @@ BE runs on port 3001
 
 Dev access localhost:3000 to get FE templates and request apis on 3001
 
+CAUTION: Node 17.4.0+ is required to run vite.
+
 ## Prod
 
 The FE is built into a bunch of html/js/css assets, put them on public/static dir,
