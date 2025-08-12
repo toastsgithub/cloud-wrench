@@ -12,8 +12,6 @@ export function TimeConverterPage() {
     setSyncNow(vals.syncNow)
   }
 
-  const result = moment(input).isValid() ? moment(input).format("YYYY-MM-DD HH:mm:ss") : "输入无效"
-
   useEffect(() => {
     let handler: NodeJS.Timeout
     if (syncNow) {
