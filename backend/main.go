@@ -7,13 +7,14 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"strconv"
 	"strings"
 
 	"github.com/gin-gonic/gin"
 )
 
 const (
-	PORT = ":3000"
+	DEFAULT_PORT = ":3000"
 )
 
 func main() {
@@ -55,7 +56,12 @@ func main() {
 		ctx.File(filepath.Join(staticRoot, "index.html"))
 	})
 
-	r.Run(PORT)
+	portNum, err := strconv.Atoi(os.Getenv("SERVER_PORT"))
+	port := DEFAULT_PORT
+	if err == nil {
+		port = fmt.Sprintf(":%d", portNum)
+	}
+	r.Run(port)
 }
 
 func fileExists(path string) bool {
